@@ -1,0 +1,5 @@
+{"text": "Broccoli", "type": "vegetable", "retrieved": true}
+{"text": "Sausage", "type": "meat", "retrieved": true}
+{"text": "Chicken Thigh", "type": "meat", "retrieved": true}
+{"text": "Rice", "type": "grain", "retrieved": false}
+{"text": "Paprika", "type": "spice", "retrieved": false}

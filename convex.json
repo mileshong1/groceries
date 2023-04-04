@@ -1,0 +1,7 @@
+{
+  "project": "groceries",
+  "team": "mileshong1",
+  "prodUrl": "https://adventurous-newt-154.convex.cloud",
+  "functions": "src/convex/",
+  "authInfo": []
+}
