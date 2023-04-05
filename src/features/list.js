@@ -26,6 +26,7 @@ function List() {
     }  
 
     return (
+      <div>
         <ul>
         {items.map(item => (
           <li key={item._id.toString()}>
@@ -46,7 +47,10 @@ function List() {
             </button>
           </li>
         ))}
-      </ul>
+        </ul>
+      </div>
+
+
     )
 }
 

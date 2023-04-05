@@ -9,23 +9,50 @@ function AddArea() {
     const [user] = useState(() => "User " + Math.floor(Math.random() * 10000));
 
     const addItem = useMutation("addItem")
+    const availableItems = useQuery("getAvailable") || []
+
+    const [itemNotOk, setItemNotOk] = useState(false)
+
     async function handleAddItem(event) {
         event.preventDefault();
 
         setNewText("")
         setNewType("")
 
-        await addItem(
+        const result = await addItem(
             {
                 text: newText,
                 type: newType,
                 user: user
             }
         )
+        console.log(result)
+        if (result === "ok")
+            setItemNotOk(false)
+        else
+            setItemNotOk(true)
     }
 
     return (
         <div>
+            {availableItems.map(item => (
+                <li key={item._id.toString()}>
+                    <span>{item.text}</span>
+                    <span>{item.type}</span>
+
+                    <form>
+                        <pre>Quantity:</pre>
+                        <input
+                            type="number"
+                            defaultValue={0}
+                        />
+
+                        <input type="submit" value="+"></input>
+                    </form>
+                </li>
+            ))}
+            
+            <h1>Item Not There? Add Here:</h1>    
             <form onSubmit={handleAddItem}>
                 <input
                     value={newText}
@@ -48,6 +75,9 @@ function AddArea() {
                 <input type="submit" value="Add" disabled={!newText && !newType} />
             </form>
 
+            {itemNotOk && (
+                <span>Item already added!</span>
+            )}
         </div>
     )
 }

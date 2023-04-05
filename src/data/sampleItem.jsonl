@@ -1,5 +1,10 @@
-{"text": "Broccoli", "type": "vegetable", "retrieved": true}
-{"text": "Sausage", "type": "meat", "retrieved": true}
-{"text": "Chicken Thigh", "type": "meat", "retrieved": true}
-{"text": "Rice", "type": "grain", "retrieved": false}
-{"text": "Paprika", "type": "spice", "retrieved": false}
+{"text": "Broccoli", "type": "vegetable"}
+{"text": "Sausage", "type": "meat"}
+{"text": "Chicken Thigh", "type": "meat"}
+{"text": "Rice", "type": "grain"}
+{"text": "Watermelon", "type": "fruit"}
+{"text": "Ground Beef", "type": "meat"}
+{"text": "Pasta", "type": "grain"}
+{"text": "Doritos", "type": "misc"}
+{"text": "Ice Cream", "type": "misc"}
+{"text": "Lettuce", "type": "vegetable"}
