@@ -11,6 +11,7 @@
 
 import type { ApiFromModules } from "convex/api";
 import type * as addItem from "../addItem";
+import type * as deleteItem from "../deleteItem";
 import type * as getItems from "../getItems";
 import type * as updateRetrieved from "../updateRetrieved";
 
@@ -25,6 +26,7 @@ import type * as updateRetrieved from "../updateRetrieved";
  */
 export type API = ApiFromModules<{
   addItem: typeof addItem;
+  deleteItem: typeof deleteItem;
   getItems: typeof getItems;
   updateRetrieved: typeof updateRetrieved;
 }>;

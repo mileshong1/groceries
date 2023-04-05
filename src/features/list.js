@@ -3,6 +3,8 @@ import { useQuery, useMutation } from "../convex/_generated/react"
 function List() {
     const items = useQuery("getItems") || []
     const updateRetrieved = useMutation("updateRetrieved");
+    const deleteItem = useMutation("deleteItem")
+
     async function handleUpdateRetrieved(i) {
         // toggle to opposite
         const i_id = i._id
@@ -17,6 +19,12 @@ function List() {
         });
       }
 
+    async function handleDeleteItem(id) {
+      await deleteItem({
+        id: id
+      })
+    }  
+
     return (
         <ul>
         {items.map(item => (
@@ -30,6 +38,12 @@ function List() {
                 checked={item.retrieved}
                 onChange={() => handleUpdateRetrieved(item)}
             />
+
+            <button type="button"
+              onClick={() => handleDeleteItem(item._id)}
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
