@@ -14,8 +14,16 @@ export default mutation(async ({ db }, { text, type, quantity, user }) => {
         .collect()
     
     // if item is in the list, we should add quantity
-    if (inList.length > 0)
-        return "not unique"
+    if (inList.length > 0) {
+        if (inList.length > 1)
+            return "not unique"
+
+        const item = inList[0]
+
+        await db.patch(item._id, {quantity: (+quantity) + (+item.quantity)})
+        return "ok"
+    } 
+        
 
     // it should also check if the item is already in available table
     // if so --> do nothing
