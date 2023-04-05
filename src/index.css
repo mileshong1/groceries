@@ -68,7 +68,6 @@ li span:nth-child(1) {
 }
 li span:nth-child(2) {
   margin-right: 4px;
-  word-break: break-word;
 }
 li span:nth-child(3) {
   color: #6c757d;
@@ -108,4 +107,21 @@ button:hover {
 input[type="submit"]:disabled,
 button:disabled {
   background-color: rgb(122, 160, 248);
+}
+
+.item-details {
+  display: flex;
+  flex-flow: column;
+  padding-right: 30px;
+}
+
+.got-delete {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.got-delete > button {
+  background-color: red;
 }

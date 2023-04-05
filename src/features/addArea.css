@@ -1,0 +1,23 @@
+.quantity-add {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.custom-add {
+    display: flex;
+    flex-flow: column;
+    width: 30%;
+}
+
+.custom-add > * {
+    padding-bottom: 15px;
+}
+
+.custom-add-div {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    width: 100%;
+}

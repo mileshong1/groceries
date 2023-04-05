@@ -26,25 +26,29 @@ function List() {
     }  
 
     return (
-      <div>
+      <div className="list">
         <ul>
         {items.map(item => (
-          <li key={item._id.toString()}>
-            <span>{item.text}</span>
+          <li key={item._id.toString()} className="list-item">
+            <div className="item-details">
+              <span>{item.text} (x{item.quantity})</span>
+              <span>{item.type}</span>
+            </div>
 
-            <span>{item.type}</span>
+            <div className="got-delete">
+              <input
+                  type="checkbox"
+                  checked={item.retrieved}
+                  onChange={() => handleUpdateRetrieved(item)}
+              />
 
-            <input
-                type="checkbox"
-                checked={item.retrieved}
-                onChange={() => handleUpdateRetrieved(item)}
-            />
-
-            <button type="button"
-              onClick={() => handleDeleteItem(item._id)}
-            >
-              X
-            </button>
+              <button type="button"
+                onClick={() => handleDeleteItem(item._id)}
+              >
+                X
+              </button>
+            </div>
+            
           </li>
         ))}
         </ul>

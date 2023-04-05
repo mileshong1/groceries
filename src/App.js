@@ -12,7 +12,7 @@ function App() {
       <h1>Grocery List</h1>
       <List></List>
 
-      <h1>Add Item</h1>
+      <h1>Add Items</h1>
       <AddArea></AddArea>
     </div>
     

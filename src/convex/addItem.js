@@ -1,6 +1,11 @@
 import { mutation } from "./_generated/server";
 
-export default mutation(async ({ db }, { text, type, user }) => {
+export default mutation(async ({ db }, { text, type, quantity, user }) => {
+    // if quantity is 0, reject
+    console.log(quantity)
+    if (quantity == "0" || quantity <= 0)
+        return "quantity can not be 0"
+
     // this should check if the item is already in the list
     // really should be checked via text
     const inList = await db
@@ -8,6 +13,7 @@ export default mutation(async ({ db }, { text, type, user }) => {
         .filter(q => q.eq(q.field("text"), text))
         .collect()
     
+    // if item is in the list, we should add quantity
     if (inList.length > 0)
         return "not unique"
 
@@ -26,10 +32,12 @@ export default mutation(async ({ db }, { text, type, user }) => {
         })
     }
 
+    console.log(text)
     const item = { 
         retrieved: false,
         text: text,
         type: type,
+        quantity: quantity,
         user: user
      }
 
