@@ -3,10 +3,18 @@ import { useQuery, useMutation } from "../convex/_generated/react"
 function List() {
     const items = useQuery("getItems") || []
     const updateRetrieved = useMutation("updateRetrieved");
-    async function handleUpdateRetrieved(i, r) {
+    async function handleUpdateRetrieved(i) {
         // toggle to opposite
-        r = !r
-        await updateRetrieved({id: i, r});
+        const i_id = i._id
+        const retrieved = !i.retrieved
+
+        console.log(i_id)
+        console.log(retrieved)
+        
+        await updateRetrieved({
+          i: i_id,
+          r: retrieved
+        });
       }
 
     return (
@@ -20,7 +28,7 @@ function List() {
             <input
                 type="checkbox"
                 checked={item.retrieved}
-                onChange={() => handleUpdateRetrieved(item._id, item.retrieved)}
+                onChange={() => handleUpdateRetrieved(item)}
             />
           </li>
         ))}
