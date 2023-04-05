@@ -10,6 +10,7 @@
  */
 
 import type { ApiFromModules } from "convex/api";
+import type * as addItem from "../addItem";
 import type * as getItems from "../getItems";
 import type * as updateRetrieved from "../updateRetrieved";
 
@@ -23,6 +24,7 @@ import type * as updateRetrieved from "../updateRetrieved";
  * `ConvexReactClient` to create app-specific types.
  */
 export type API = ApiFromModules<{
+  addItem: typeof addItem;
   getItems: typeof getItems;
   updateRetrieved: typeof updateRetrieved;
 }>;
